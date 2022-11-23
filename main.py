@@ -6,46 +6,37 @@ def main(args: list) -> None:
     help_output = '''
     Usage: python3 main.py <host> [options]
     Options:
-        -h, --help: show this help
-        -H, --host: host to trace
-        -t, --timeout: timeout for each request
-        -s, --sequence-number: number of requests
-        -p, --packet-size: size of packet
-        -r, --request-count: number of requests
-        -d, --debug: debug mode
-        -n, --need-domains: need domains
-        -i, --interval: interval between requests
-        -P, --port: port
-        -T, --protocol: protocol (tcp or udp)
-        -m, --message: custom message
+        --help: show this help
+        --timeout <timeout>: set timeout for each request
+        --sequence-number <sequence_number>: set sequence number
+        --packet_size <packet_size>: set packet size
+        --request_count <request_count>: set request count
+        --is_need_domains: show domains
+        --interval <interval>: set interval between requests
+        --debug: show debug info
+        --port <port>: set port
+        --protocol <protocol>: set protocol
+        --custom_message <custom_message>: set custom message
+        
     
-    Example: python3 main.py google.com -t=2 -s=30 -p=40 -r=3 -d=1 
-             -n=1 -i=0 -P=443 -T=udp -m=hello_world
+    Example: 
+        python3 main.py google.com --timeout=2 --sequence-number=30 
+        --packet_size=40 --request_count=3 --is_need_domains=1 --interval=0 
+        --debug=1 --port=443 --protocol=udp --custom_message=hello_world! 
     '''
 
     arguments = {
         "host": '',
-        'H': '',
         "timeout": 2,
-        't': 2,
         "sequence_number": 30,
-        's': 30,
         "packet_size": 40,
-        'p': 40,
         "request_count": 3,
-        'r': 3,
         "is_need_domains": False,
-        'n': False,
         "interval": 0,
-        'i': 0,
         "debug": False,
-        'd': False,
         "port": 443,
-        'P': 443,
         "protocol": 'udp',
-        'T': 'udp',
         "custom_message": None,
-        'm': None
     }
 
     if '-h' in args or '--help' in args:
